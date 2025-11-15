@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Destinations - Elgo Tours</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f5f5f5;
+    }
+    .destinations-section {
+      max-width: 1200px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+    .destinations-section h2 {
+      text-align: center;
+      color: #004d40;
+      font-size: 32px;
+      margin-bottom: 30px;
+    }
+    .destination-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .destination-card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .destination-card:hover {
+      transform: scale(1.03);
+    }
+    .destination-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .destination-info {
+      padding: 20px;
+    }
+    .destination-info h3 {
+      margin-top: 0;
+      color: #00695c;
+    }
+    .destination-info p {
+      font-size: 14px;
+      color: #555;
+    }
+    .destination-info button {
+      margin-top: 10px;
+      background: #00796b;
+      color: white;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .destination-info button:hover {
+      background: #004d40;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.6);
+    }
+    .modal-content {
+      background-color: #fff;
+      margin: 5% auto;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 600px;
+      position: relative;
+    }
+    .modal-content img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+    .close-modal {
+      color: #aaa;
+      position: absolute;
+      top: 10px; right: 20px;
+      font-size: 24px;
+      cursor: pointer;
+    }
+    .close-modal:hover {
+      color: black;
+    }
+    .book-btn {
+      background: #00796b;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<section class="destinations-section" id="destinations">
+  <h2>Top Destinations in Uganda</h2>
+  <div class="destination-grid">
+
+    <div class="destination-card">
+      <img src="murchison.jpg" alt="Murchison Falls">
+      <div class="destination-info">
+        <h3>Murchison Falls</h3>
+        <p>Powerful waterfall, boat cruises, game drives.</p>
+        <button class="open-modal" data-target="modal1">Explore</button>
+      </div>
+    </div>
+
+    <div class="destination-card">
+      <img src="Bwindi.jpeg" alt="Bwindi Forest">
+      <div class="destination-info">
+        <h3>Bwindi Forest</h3>
+        <p>Gorilla tracking, lush rainforest.</p>
+        <button class="open-modal" data-target="modal2">Explore</button>
+      </div>
+    </div>
+
+    <div class="destination-card">
+      <img src="kidepo.jpg" alt="Kidepo Valley">
+      <div class="destination-info">
+        <h3>Kidepo Valley</h3>
+        <p>Remote savannah, wild beauty.</p>
+        <button class="open-modal" data-target="modal3">Explore</button>
+      </div>
+    </div>
+
+    <div class="destination-card">
+      <img src="jinja.jpeg" alt="Jinja – Source of the Nile">
+      <div class="destination-info">
+        <h3>Jinja – Source of the Nile</h3>
+        <p>Rafting, bungee, Nile explorations.</p>
+        <button class="open-modal" data-target="modal4">Explore</button>
+      </div>
+    </div>
+
+    <div class="destination-card">
+      <img src="sipi.jpg" alt="Sipi Falls">
+      <div class="destination-info">
+        <h3>Sipi Falls</h3>
+        <p>Waterfalls, hiking, coffee tours.</p>
+        <button class="open-modal" data-target="modal5">Explore</button>
+      </div>
+    </div>
+
+    <div class="destination-card">
+      <img src="mburo.jpg" alt="Lake Mburo">
+      <div class="destination-info">
+        <h3>Lake Mburo</h3>
+        <p>Zebras, boat trips, biking.</p>
+        <button class="open-modal" data-target="modal6">Explore</button>
+      </div>
+    </div>
+
+    <div class="destination-card">
+      <img src="bunyonyi.jpg" alt="Lake Bunyonyi">
+      <div class="destination-info">
+        <h3>Lake Bunyonyi</h3>
+        <p>Islands, canoeing, relaxing views.</p>
+        <button class="open-modal" data-target="modal7">Explore</button>
+      </div>
+    </div>
+
+    <div class="destination-card">
+      <img src="ssezibwa.jpg" alt="Ssezibwa Falls">
+      <div class="destination-info">
+        <h3>Ssezibwa Falls</h3>
+        <p>Spiritual site & nature views.</p>
+        <button class="open-modal" data-target="modal8">Explore</button>
+      </div>
+    </div>
+
+    <div class="destination-card">
+      <img src="queen.jpg" alt="Queen Elizabeth Park">
+      <div class="destination-info">
+        <h3>Queen Elizabeth Park</h3>
+        <p>Tree lions, boat safaris, crater lakes.</p>
+        <button class="open-modal" data-target="modal9">Explore</button>
+      </div>
+    </div>
+
+    <div class="destination-card">
+      <img src="semuliki.jpg" alt="Semuliki Hot Springs">
+      <div class="destination-info">
+        <h3>Semuliki Hot Springs</h3>
+        <p>Boiling springs, jungle walks.</p>
+        <button class="open-modal" data-target="modal10">Explore</button>
+      </div>
+    </div>
+
+    <div class="destination-card">
+      <img src="rwenzori.jpg" alt="Rwenzori Mountains">
+      <div class="destination-info">
+        <h3>Rwenzori Mountains</h3>
+        <p>Snowy peaks & hiking expeditions.</p>
+        <button class="open-modal" data-target="modal11">Explore</button>
+      </div>
+    </div>
+
+    <div class="destination-card">
+      <img src="mabira.jpg" alt="Mabira Forest Trekking">
+      <div class="destination-info">
+        <h3>Mabira Forest Trekking</h3>
+        <p>Rainforest walks near Jinja.</p>
+        <button class="open-modal" data-target="modal12">Explore</button>
+      </div>
+    </div>
+
+    <div class="destination-card">
+      <img src="birdwatching.jpg" alt="Bird Watching in Mabira">
+      <div class="destination-info">
+        <h3>Bird Watching in Mabira</h3>
+        <p>Forest birds, hornbills, turacos.</p>
+        <button class="open-modal" data-target="modal13">Explore</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Modals -->
+
+<div id="modal1" class="modal">
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <img src="murchison.jpg" alt="Murchison Falls">
+    <h2>Murchison Falls</h2>
+    <p>Uganda’s largest park, known for the iconic Murchison Falls where the Nile explodes through a narrow gorge. Rich in wildlife, boat rides, and savannah game drives.</p>
+    <a href="#book" class="book-btn">Book Now</a>
+  </div>
+</div>
+
+<div id="modal2" class="modal">
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <img src="Bwindi.jpeg" alt="Bwindi Forest">
+    <h2>Bwindi Forest</h2>
+    <p>Home to nearly half the world’s mountain gorillas. Trek through misty rainforest and encounter primates in this UNESCO World Heritage Site.</p>
+    <a href="#book" class="book-btn">Book Now</a>
+  </div>
+</div>
+
+<div id="modal3" class="modal">
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <img src="kidepo.jpg" alt="Kidepo Valley">
+    <h2>Kidepo Valley</h2>
+    <p>One of Africa's most scenic parks. Untouched wilderness, sweeping grasslands, and abundant wildlife make this a true safari paradise.</p>
+    <a href="#book" class="book-btn">Book Now</a>
+  </div>
+</div>
+
+<div id="modal4" class="modal">
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <img src="jinja.jpeg" alt="Jinja – Source of the Nile">
+    <h2>Jinja – Source of the Nile</h2>
+    <p>The adventure capital of East Africa. Enjoy white-water rafting, quad biking, bungee jumping, and explore the legendary Source of the Nile.</p>
+    <a href="#book" class="book-btn">Book Now</a>
+  </div>
+</div>
+
+<div id="modal5" class="modal">
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <img src="sipi.jpg" alt="Sipi Falls">
+    <h2>Sipi Falls</h2>
+    <p>Located on the slopes of Mt. Elgon, Sipi Falls offers scenic views, nature trails, and cultural coffee experiences.</p>
+    <a href="#book" class="book-btn">Book Now</a>
+  </div>
+</div>
+
+<div id="modal6" class="modal">
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <img src="mburo.jpg" alt="Lake Mburo">
+    <h2>Lake Mburo</h2>
+    <p>A compact park with diverse wildlife, Lake Mburo offers walking safaris, cycling, and boat rides among hippos and crocodiles.</p>
+    <a href="#book" class="book-btn">Book Now</a>
+  </div>
+</div>
+
+<div id="modal7" class="modal">
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <img src="bunyonyi.jpg" alt="Lake Bunyonyi">
+    <h2>Lake Bunyonyi</h2>
+    <p>Known as the ‘Lake of Little Birds’, Bunyonyi is Uganda’s most beautiful lake, great for relaxation and cultural island tours.</p>
+    <a href="#book" class="book-btn">Book Now</a>
+  </div>
+</div>
+
+<div id="modal8" class="modal">
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <img src="ssezibwa.jpg" alt="Ssezibwa Falls">
+    <h2>Ssezibwa Falls</h2>
+    <p>A cultural and spiritual heritage site with twin waterfalls, nature walks, bird watching, and local folklore.</p>
+    <a href="#book" class="book-btn">Book Now</a>
+  </div>
+</div>
+
+<div id="modal9" class="modal">
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <img src="queen.jpg" alt="Queen Elizabeth Park">
+    <h2>Queen Elizabeth Park</h2>
+    <p>A classic savannah park with diverse ecosystems, boat trips on the Kazinga Channel, and tree-climbing lions in Ishasha.</p>
+    <a href="#book" class="book-btn">Book Now</a>
+  </div>
+</div>
+
+<div id="modal10" class="modal">
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <img src="semuliki.jpg" alt="Semuliki Hot Springs">
+    <h2>Semuliki Hot Springs</h2>
+    <p>Home to the famous Sempaya hot springs, Semuliki is a tropical lowland rainforest rich in birds, monkeys, and steamy geysers.</p>
+    <a href="#book" class="book-btn">Book Now</a>
+  </div>
+</div>
+
+<div id="modal11" class="modal">
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <img src="rwenzori.jpg" alt="Rwenzori Mountains">
+    <h2>Rwenzori Mountains</h2>
+    <p>Africa's highest mountain range. Trek through glacial valleys and alpine meadows on multi-day hikes to the peaks.</p>
+    <a href="#book" class="book-btn">Book Now</a>
+  </div>
+</div>
+
+<div id="modal12" class="modal">
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <img src="mabira.jpg" alt="Mabira Forest Trekking">
+    <h2>Mabira Forest Trekking</h2>
+    <p>Explore one of Uganda’s last remaining tropical forests with guided walks, canopy views, and exotic flora and fauna.</p>
+    <a href="#book" class="book-btn">Book Now</a>
+  </div>
+</div>
+
+<div id="modal13" class="modal">
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <img src="birdwatching.jpg" alt="Bird Watching in Mabira">
+    <h2>Bird Watching in Mabira</h2>
+    <p>Mabira is a birding haven for over 300 species. Spot turacos, hornbills, and colorful forest birds in their natural habitat.</p>
+    <a href="#book" class="book-btn">Book Now</a>
+  </div>
+</div>
+
+<script>
+  // Open modals
+  document.querySelectorAll('.open-modal').forEach(button => {
+    button.addEventListener('click', () => {
+      const target = button.getAttribute('data-target');
+      document.getElementById(target).style.display = 'block';
+    });
+  });
+
+  // Close modals
+  document.querySelectorAll('.close-modal').forEach(span => {
+    span.addEventListener('click', () => {
+      span.closest('.modal').style.display = 'none';
+    });
+  });
+
+  // Close modal when clicking outside modal content
+  window.onclick = (event) => {
+    document.querySelectorAll('.modal').forEach(modal => {
+      if (event.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+  };
+</script>
+
+</body>
+</html>

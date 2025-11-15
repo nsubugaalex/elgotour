@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Elgo Travel Services</title>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: #f9f9f9;
+      color: #333;
+    }
+    header {
+      background: #00796b;
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    .container {
+      padding: 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    .service {
+      background: white;
+      margin-bottom: 30px;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      align-items: center;
+    }
+    .service img {
+      max-width: 300px;
+      width: 100%;
+      border-radius: 8px;
+    }
+    .service-text {
+      flex: 1;
+      min-width: 250px;
+    }
+    .service h2 {
+      color: #00796b;
+      margin-top: 0;
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #00796b;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+    @media (max-width: 768px) {
+      .service {
+        flex-direction: column;
+        text-align: center;
+      }
+      .service img {
+        margin-bottom: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Elgo Travel Services</h1>
+    <p>Trusted Transport – From the Airport to Adventures</p>
+  </header>
+
+  <div class="container">
+
+    <div class="service">
+      <img src="images/car-hire.jpg" alt="Car Hire Service">
+      <div class="service-text">
+        <h2>🚗 Car Hiring</h2>
+        <p>Choose from our range of clean, reliable vehicles—ideal for self-drive or with a driver. Perfect for business, safaris, or city travel.</p>
+        <a href="#book" class="btn">Book a Car</a>
+      </div>
+    </div>
+
+    <div class="service">
+      <img src="images/airport-transfer.jpg" alt="Airport Pickup">
+      <div class="service-text">
+        <h2>✈️ Airport Pickup</h2>
+        <p>Arrive in comfort. We offer prompt airport pickups and drop-offs between Entebbe and your destination. Safe, timely, and professional.</p>
+        <a href="#book" class="btn">Schedule Pickup</a>
+      </div>
+    </div>
+
+    <div class="service">
+      <img src="images/student-tour.jpg" alt="Student Tour">
+      <div class="service-text">
+        <h2>🎒 Student Tours</h2>
+        <p>Explore Uganda with educational tour packages for schools and colleges. Safe, guided, and rich with learning experiences.</p>
+        <a href="#book" class="btn">Plan a Tour</a>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

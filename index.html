@@ -1,0 +1,66 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="description" content="Explore Uganda with Elgotours - unforgettable safaris, cultural tours, gorilla trekking & more. Book now!" />  
+  <meta name="keywords" content="Uganda tours, Gorilla trekking, Safari Uganda, Elgotours, travel in Uganda, Kitega Community Centre" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elgotours</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav aria-label="Main navigation">
+  <button id="menuToggle" aria-label="Toggle navigation menu">☰</button>
+  <div id="navLinks">
+    <a href="about.html" class="active">About</a>
+    <a href="destination.html" class="active">Destinations</a>
+    <a href="testimonies.html" class="active">Testimonials</a>
+    <a href="contact.html"class="action">Contact</a>
+    <a href="booking.html"class="active">Book</a>
+    <a href="travel-services.html">Travel Services</a>
+
+  </div>
+</nav>
+
+<section id="hero">
+  <div class="hero-content">
+    <img id="logo" src="logo.png" alt="Elgotours Logo" width="120" height="auto">
+    <div class="hero-text">
+      <h1>Discover Uganda with Elgotours</h1>
+      <p>Your adventure starts here.</p>
+      <button onclick="document.getElementById('packages').scrollIntoView({ behavior: 'smooth' });">Explore Tours</button>
+    </div>
+  </div>
+</section>
+
+<a href="https://wa.me/+256704535863" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">💬</a>
+<footer>
+    <p>&copy; 2025 Elgotours. All rights reserved.</p>
+  </footer>
+<script>
+  document.getElementById('menuToggle').onclick = function() {
+    document.getElementById('navLinks').classList.toggle('active');
+  }
+  const images = [
+      'bg1.png',
+      'bg2.jpg',
+      'bg3.jpg',
+      'bg4.webp',
+      'bg5.jpeg'
+    ];
+    let current = 0;
+
+    function changeHeroBg() {
+      document.getElementById('hero').style.backgroundImage = `url('${images[current]}')`;
+      current = (current + 1) % images.length;
+    }
+
+    changeHeroBg();
+    setInterval(changeHeroBg, 5000);
+</script>
+
+</body>
+</html>

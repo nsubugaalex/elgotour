@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Destinations - Elgo Tours</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f5f5f5;
+    }
+
+    .destinations-section {
+      max-width: 1200px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    .destinations-section h2 {
+      text-align: center;
+      color: #004d40;
+      font-size: 32px;
+      margin-bottom: 30px;
+    }
+
+    .destination-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .destination-card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .destination-card:hover {
+      transform: scale(1.03);
+    }
+
+    .destination-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .destination-info {
+      padding: 20px;
+    }
+
+    .destination-info h3 {
+      margin-top: 0;
+      color: #00695c;
+    }
+
+    .destination-info p {
+      font-size: 14px;
+      color: #555;
+    }
+
+    .destination-info a {
+      display: inline-block;
+      margin-top: 10px;
+      text-decoration: none;
+      color: #ffffff;
+      background: #00796b;
+      padding: 8px 14px;
+      border-radius: 6px;
+    }
+
+    .destination-info a:hover {
+      background: #004d40;
+    }
+
+    /* Modal Styles */
+    #destinationModal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.7);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #destinationModal .modal-content {
+      background: #fff;
+      padding: 30px;
+      max-width: 600px;
+      border-radius: 10px;
+      position: relative;
+    }
+
+    #destinationModal .modal-close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      cursor: pointer;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    @media(max-width: 600px) {
+      #destinationModal .modal-content {
+        width: 90%;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="destinations-section" id="destinations">
+    <h2>Top Destinations in Uganda</h2>
+    <div class="destination-grid" id="destinationGrid">
+      <!-- Content will be loaded from Google Sheets -->
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div id="destinationModal">
+    <div class="modal-content">
+      <span class="modal-close" onclick="closeModal()">&times;</span>
+      <div id="modalContent">
+        <!-- Dynamic content will go here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    function openModal(title, description) {
+      document.getElementById('modalContent').innerHTML = `
+        <h2 style="color:#004d40;">${title}</h2>
+        <p style="color:#333; font-size:15px;">${description}</p>
+      `;
+      document.getElementById('destinationModal').style.display = 'flex';
+    }
+
+    function closeModal() {
+      document.getElementById('destinationModal').style.display = 'none';
+    }
+
+    // Load destination data from Google Sheets (Published CSV link)
+    fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vQyxYLN7XJ5X-SAMPLE_CSV_LINK/pub?output=csv")
+      .then(response => response.text())
+      .then(data => {
+        const rows = data.split('\n').slice(1);
+        const grid = document.getElementById('destinationGrid');
+        rows.forEach(row => {
+          const [title, description, image] = row.split(',');
+          if (title && image && description) {
+            grid.innerHTML += `
+              <div class="destination-card">
+                <img src="${image.trim()}" alt="${title}">
+                <div class="destination-info">
+                  <h3>${title}</h3>
+                  <p>${description}</p>
+                  <a href="javascript:void(0)" onclick="openModal('${title}', '${description}')">More Info</a>
+                </div>
+              </div>
+            `;
+          }
+        });
+      });
+  </script>
+
+</body>
+</html>

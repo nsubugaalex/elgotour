@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Testimonials | Elgotours</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/tabletop@1.6.0/tabletop.js"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      padding: 40px 20px;
+      color: #333;
+    }
+
+    h2 {
+      text-align: center;
+      color: #00695c;
+      font-size: 32px;
+      margin-bottom: 30px;
+      font-weight: 600;
+    }
+
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      padding: 0 10px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .testimonial {
+      background: white;
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: fadeInUp 0.6s ease forwards;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .testimonial:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+    }
+
+    .testimonial p {
+      font-size: 16px;
+      line-height: 1.6;
+      margin: 0 0 12px;
+    }
+
+    .testimonial strong {
+      display: block;
+      color: #004d40;
+      font-weight: 500;
+      font-size: 15px;
+    }
+
+    .submit-link {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .submit-link a {
+      display: inline-block;
+      background: #00796b;
+      color: #fff;
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-size: 16px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .submit-link a:hover {
+      background: #004d40;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 600px) {
+      h2 {
+        font-size: 26px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h2>What Our Clients Say</h2>
+
+  <div id="testimonials" class="testimonials">
+    <!-- Testimonials will be injected here -->
+  </div>
+
+  <div class="submit-link">
+    <a href="https://docs.google.com/spreadsheets/d/14gLNpuQzHiMLfwHDkbG49LAP9tdF-0qI7jDQFmfXmAA/edit?gid=0#gid=0" target="_blank">
+      Share Your Testimonial
+    </a>
+  </div>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      Tabletop.init({
+        key: 'https://docs.google.com/spreadsheets/d/14gLNpuQzHiMLfwHDkbG49LAP9tdF-0qI7jDQFmfXmAA/edit?gid=0#gid=0',
+        simpleSheet: true,
+        callback: function(data) {
+          const container = document.getElementById('testimonials');
+          data.forEach((row, index) => {
+            const card = document.createElement('div');
+            card.className = 'testimonial';
+            card.style.animationDelay = `${index * 0.1}s`;
+            card.innerHTML = `
+              <p>"${row.Message}"</p>
+              <strong>- ${row.Name}, ${row.Tour}</strong>
+            `;
+            container.appendChild(card);
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

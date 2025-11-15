@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Murchison Falls National Park - Elgo Tours</title>
+  <style>
+    :root {
+      --primary-color: #004d40;
+      --secondary-color: #00796b;
+      --accent-color: #e0f2f1;
+      --font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font);
+      background: #f5f5f5;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    .header {
+      background: var(--primary-color);
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 20px;
+      background: white;
+      animation: fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    img {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 25px;
+    }
+
+    h2 {
+      margin-top: 30px;
+      color: var(--primary-color);
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 5px;
+    }
+
+    ul {
+      padding-left: 20px;
+      margin-top: 10px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    .info-blocks {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .info-block {
+      background: var(--accent-color);
+      padding: 15px 20px;
+      border-left: 5px solid var(--secondary-color);
+      border-radius: 8px;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 30px;
+      text-decoration: none;
+      background: var(--secondary-color);
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 6px;
+      transition: background 0.3s ease;
+    }
+
+    .back-link:hover {
+      background: var(--primary-color);
+    }
+
+    @media (max-width: 600px) {
+      .header h1 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>Murchison Falls National Park</h1>
+    <p>Uganda's Largest and Most Iconic National Park</p>
+  </div>
+
+  <div class="container">
+    <img src="murchison.jpg" alt="Murchison Falls National Park">
+
+    <h2>Overview</h2>
+    <p>
+      Located in northwestern Uganda, Murchison Falls National Park is the country’s oldest and largest conservation area. Its centerpiece is the dramatic Murchison Falls, where the mighty Nile River is forced through a narrow gorge, plunging 43 meters below. The park offers stunning views, diverse wildlife, and unforgettable adventures.
+    </p>
+
+    <h2>Top Activities</h2>
+    <div class="info-blocks">
+      <div class="info-block">
+        <strong>Game Drives:</strong> Track elephants, lions, giraffes, and more on scenic savannah drives.
+      </div>
+      <div class="info-block">
+        <strong>Boat Safaris:</strong> Cruise to the base of the falls and encounter hippos, crocodiles, and birds.
+      </div>
+      <div class="info-block">
+        <strong>Top of the Falls Hike:</strong> A short but thrilling hike offering a panoramic view of the thunderous falls.
+      </div>
+      <div class="info-block">
+        <strong>Bird Watching:</strong> Spot over 450 bird species, including the Shoebill Stork.
+      </div>
+      <div class="info-block">
+        <strong>Chimpanzee Tracking:</strong> Available nearby in Budongo Forest Reserve.
+      </div>
+    </div>
+
+    <h2>Wildlife</h2>
+    <p>
+      Home to over 76 mammal species including elephants, lions, hippos, leopards, and giraffes. Bird lovers can find the Goliath Heron, African Fish Eagle, Secretary Bird, and more.
+    </p>
+
+    <h2>Getting There</h2>
+    <ul>
+      <li><strong>By Road:</strong> Approx. 5–6 hours from Kampala via Masindi.</li>
+      <li><strong>By Air:</strong> Charter flights to Pakuba, Bugungu, or Chobe airstrips.</li>
+    </ul>
+
+    <h2>Best Time to Visit</h2>
+    <ul>
+      <li><strong>Dry Season (June–Sept, Dec–Feb):</strong> Excellent wildlife viewing and easy access.</li>
+      <li><strong>Wet Season (Mar–May, Oct–Nov):</strong> Fewer visitors and greener landscapes — ideal for birding.</li>
+    </ul>
+
+    <h2>Where to Stay</h2>
+    <ul>
+      <li><strong>Luxury:</strong> Chobe Safari Lodge, Paraa Safari Lodge</li>
+      <li><strong>Mid-range:</strong> Murchison River Lodge, Pakuba Safari Lodge</li>
+      <li><strong>Budget:</strong> Red Chilli Rest Camp, UWA Campsites</li>
+    </ul>
+
+    <a class="back-link" href="index.html#destinations">← Back to Destinations</a>
+  </div>
+
+</body>
+</html>
